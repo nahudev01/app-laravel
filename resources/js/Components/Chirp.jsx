@@ -19,8 +19,9 @@ export default function Chirp({ chirp }) {
 
     const submit = (e) => {
         e.preventDefault();
-        patch("chirps.update", chirp.id),
-            { onSuccess: () => setEditing(false) };
+        patch(route("chirps.update", chirp.id), {
+            onSuccess: () => setEditing(false),
+        });
     };
 
     return (
